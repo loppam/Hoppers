@@ -1,18 +1,41 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Farcaster Frames V2 Demo";
+export const runtime = "edge";
+export const alt = "Hoppers - A Farcaster Frame Game";
 export const size = {
-  width: 600,
-  height: 400,
+  width: 1200,
+  height: 630,
 };
-
 export const contentType = "image/png";
 
 export default async function Image() {
   return new ImageResponse(
     (
-      <div tw="h-full w-full flex flex-col justify-center items-center relative bg-white">
-        <h1 tw="text-6xl">Frames v2 Demo</h1>
+      <div
+        style={{
+          background: "linear-gradient(to bottom right, #3b82f6, #1d4ed8)",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "white",
+          padding: "48px",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "72px",
+            fontWeight: "bold",
+            marginBottom: "20px",
+          }}
+        >
+          Hoppers
+        </h1>
+        <p style={{ fontSize: "32px", textAlign: "center" }}>
+          A fun Flappy Bird-style game for Farcaster Frames
+        </p>
       </div>
     ),
     {

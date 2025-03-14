@@ -1,26 +1,43 @@
 import type { Metadata } from "next";
-
-import { getSession } from "~/auth"
 import "~/app/globals.css";
-import { Providers } from "~/app/providers";
 
 export const metadata: Metadata = {
-  title: "Farcaster Frames v2 Demo",
-  description: "A Farcaster Frames v2 demo app",
+  title: "Hoppers - Farcaster Frame Game",
+  description: "A fun Flappy Bird-style game built for Farcaster Frames",
+  openGraph: {
+    title: "Hoppers - Farcaster Frame Game",
+    description: "A fun Flappy Bird-style game built for Farcaster Frames",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Hoppers - A Farcaster Frame Game",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hoppers - Farcaster Frame Game",
+    description: "A fun Flappy Bird-style game built for Farcaster Frames",
+    images: ["/twitter-image"],
+    creator: "@Lopam_",
+  },
+  icons: {
+    icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png" }],
+  },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getSession()
-  
   return (
     <html lang="en">
-      <body>
-        <Providers session={session}>{children}</Providers>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
