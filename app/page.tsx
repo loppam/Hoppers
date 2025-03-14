@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const Hoppers = dynamic(() => import("~/components/Hoppers"), {
+  const Hoppers = dynamic(() => import("./components/Hoppers"), {
   ssr: false,
 });
 
